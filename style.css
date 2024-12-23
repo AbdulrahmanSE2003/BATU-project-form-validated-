@@ -139,143 +139,12 @@ background: linear-gradient(45deg, var(--button-bg-color-trans2), var(--button-b
 border-radius: 10px;
 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
-/* SECTION - Start Navbar */
-nav {
-position: fixed;
-top: 0;
-z-index: 999;
-left: 0;
-right: 0;
-display: flex;
-align-items: center;
-justify-content: space-between;
-padding: 0px 12px;
-background-color: var(--header-bg-color);
-color: var(--footer-text-color);
-box-shadow: 0px 1px 12px 1px var(--header-bg-color-trans);
-}
-@media (max-width: 991px) {
-    nav {
-        flex-direction: column;
-    }
-}
-nav #university-logo a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 7px 0;
-}
-nav #university-logo a .logo {
-    width: 335px;
-}
-.navbar-links {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-}
-.navbar-links .main-li {
-    font-size: 1.15rem;
-    font-weight: bold;
-    padding: 25px 1.9rem;
-    cursor: pointer;
-    position: relative;
-    clip-path: inset(0px 0 -300px -300px);
-    z-index: 999;
-}
-.navbar-links .main-li::before {
-    content: "";
-    position: absolute;
-    top: -110%;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-bottom: 4px solid var(--footer-text-color);
-    background-color: var(--footer-txt-color-trans);
-    transition: all 0.4s;
-    z-index: -1;
-}
-.navbar-links .main-li:hover::before,
-.navbar-links .main-li.active::before{
-    top: 0;
-}
-@media (max-width: 767px) {
-    .navbar-links .main-li {
-        font-size: .9rem;
-        padding: 20px 1.1rem;
-    }
-}
-.navbar-links .main-li a {
-    color: var(--footer-text-color);
-}
-.navbar-links #megaMenuLi .mega-menu {
-    position: absolute;
-    top: 170%;
-    right: 0;
-    width: 320px;
-    background-color: var(--footer-text-color);
-    opacity: 0;
-    visibility: hidden;
-    border-bottom-left-radius: 11px;
-    border-bottom-right-radius: 11px;
-    transition: all .4s;
-}
-#megaMenuLi:hover .mega-menu {
-    top: 100%;
-    visibility: visible;
-    opacity: 1;
-}
-.navbar-links #megaMenuLi .mega-menu ul li {
-    padding: 1.1rem;
-    font-size: 1rem;
-    position: relative;
-    overflow: hidden;
-    z-index: 999;
-}
-.navbar-links #megaMenuLi .mega-menu ul li::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background-color: var(--header-bg-color-trans);
-    transition: all .6s;
-    z-index: -1;
-}
-.navbar-links #megaMenuLi .mega-menu ul li:last-child::before {
-    border-bottom-left-radius: 11px;
-    border-bottom-right-radius: 11px;
-}
-.navbar-links #megaMenuLi .mega-menu ul li:hover::before {
-    left: 0;
-}
-.navbar-links #megaMenuLi .mega-menu ul li:not(:last-child) {
-    border-bottom: 2px solid var(--night-button-bg-color);
-}
-.navbar-links #megaMenuLi .mega-menu ul li a {
-    color: var(--header-bg-color);
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    z-index: 2;
-}
-.navbar-links #megaMenuLi .mega-menu ul li a svg {
-    margin-right: .8rem;
-    font-size: 1.2rem;
-}
-/* SECTION - End Navbar */
 
-
-/* *SECTION - Responsive */
 
 /* *SECTION - Start Contact */
 #contact{
-    position: relative;
-    top: 78px;
-    height: calc(100vh - 78px);
+    height: 100vh;
 }
-
 /* *STUB - Start Left Side */
 .contact-l-side{
     background-color: var(--bg-color);
@@ -365,54 +234,8 @@ nav #university-logo a .logo {
     opacity: 1;
     background-color: rgb(99 152 111)
 }
-/* *SECTION - Footer */
-footer,
-.copy {
-  background-color: #4e342e;
-  color: #e4c59e;
-  font-family: "Rubik", serif;
-  position: relative;
-  top: 78px;
-}
-/* *REVIEW - foot-card-1  */
-footer .foot-card-1 svg {
-  cursor: pointer;
-}
-footer .foot-card-1 svg:hover {
-  color: #e4c59e;
-  transform: scale(1.15);
-}
-/* *REVIEW - foot-card-2 */
-
-footer .foot-card-2 ul li {
-  cursor: pointer;
-}
-footer .foot-card-2 ul li:hover {
-  transform: scale(1.07) translateX(10px);
-  color: var(--footer-text-color);
-}
-footer .foot-card-2 ul h3 {
-  color: var(--footer-text-color);
-}
-
-/* *SECTION - second-row */
-
-.copy hr {
-  border-width: 2px;
-  border-color: var(--footer-text-color);
-  opacity: 0.3;
-}
-.copy p {
-  color: var(--footer-text-color);
-  opacity: 0.9;
-}
-
+/* *SECTION - Responsive */
 @media (max-width:992px){
-    #contact{
-        top: 148.54px;
-        height: calc(100vh - 
-        148.54px);
-    }
     footer, .copy{
         top: 148.54px;
     }
@@ -424,10 +247,6 @@ footer .foot-card-2 ul h3 {
     }
 }
 @media (max-width:768px){
-    #contact{
-        top: 132.52px;
-        height: fit-content
-    }
     footer, .copy{
         top: 132.52px;
     }
