@@ -1,0 +1,434 @@
+:root {
+    /*! Day Mode Colors  */
+    --bg-color: #F2E8C6;
+    --text-color: #000000;
+    --secondary-text-color: #982B1C;
+    --header-bg-color: #800000;
+    --header-bg-color-trans: #af826081;
+    --card-bg-color: #DAD4B5;
+    --button-bg-color: #800000;
+    --button-bg-color-trans: #800000ce;
+    --button-bg-color-trans2: #8000009d;
+    --button-text-color: #FFFFFF;
+    --footer-bg-color: #4E342E;
+    --footer-text-color: #E4C59E;
+    --footer-text-color-dark: #b49671;
+    --footer-txt-color-trans: #e4c49e47;
+    --trans-duration: 0.3s;
+    
+    /*! Night Mode Colors  */
+    --night-bg-color: #2C2C2C;
+    --night-text-color: #FFFFFF;
+    --night-secondary-text-color: #DAD4B5;
+    --night-header-bg-color: #803D3B;
+    --night-card-bg-color: #444444;
+    --night-button-bg-color: #982B1C;
+    --night-footer-bg-color: #1A1A1A;
+    --night-footer-text-color: #DAD4B5;
+}
+.night-mode {
+    --bg-color: var(--night-bg-color);
+    --text-color: var(--night-text-color);
+    --secondary-text-color: var(--night-secondary-text-color);
+    --header-bg-color: var(--night-header-bg-color);
+    --card-bg-color: var(--night-card-bg-color);
+    --button-bg-color: var(--night-button-bg-color);
+    --footer-bg-color: var(--night-footer-bg-color);
+    --footer-text-color: var(--night-footer-text-color);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.main-trans{
+transition: all var(--trans-duration) ease-in-out;
+}
+body {
+    font-family: "Cairo", sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+}
+::selection {
+    color: var(--footer-text-color);
+    background-color: var(--button-bg-color);
+}
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+a {
+    text-decoration: none;
+}
+/** Intro Load */
+.splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--card-bg-color); 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 1s ease-out;
+}
+.splash-screen .logo {
+    width: fit-content; 
+    animation: fadeIn 2s ease-out forwards, fadeOut 1.1s 3.6s ease-in forwards;
+}
+.splash-screen .logo img {
+    width: 90px;
+    filter: contrast(1.1);
+    filter: brightness(0.9);
+}
+.splash-screen .logo h1 {
+    color: var(--night-card-bg-color);
+    font-size: 2.1rem;
+    font-weight: bold;
+    padding-left: 0.8rem;
+}
+.splash-screen .university-name {
+    color: var(--night-button-bg-color); 
+    font-size: 1.9rem;
+    margin-top: 1rem;
+    opacity: 0;
+    animation: fadeIn 2s ease-out forwards 1s, fadeOut 1.1s 4.2s ease-in forwards;
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(.8); 
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1); 
+    }
+}
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-30px) scale(.8);
+    }
+}
+
+
+/* *STUB - Scroll Bar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+background: var(--button-bg-color); 
+}
+::-webkit-scrollbar-track {
+background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+background: linear-gradient(45deg, var(--button-bg-color-trans2), var(--button-bg-color-trans));
+border-radius: 10px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+/* SECTION - Start Navbar */
+nav {
+position: fixed;
+top: 0;
+z-index: 999;
+left: 0;
+right: 0;
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 0px 12px;
+background-color: var(--header-bg-color);
+color: var(--footer-text-color);
+box-shadow: 0px 1px 12px 1px var(--header-bg-color-trans);
+}
+@media (max-width: 991px) {
+    nav {
+        flex-direction: column;
+    }
+}
+nav #university-logo a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 7px 0;
+}
+nav #university-logo a .logo {
+    width: 335px;
+}
+.navbar-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.navbar-links .main-li {
+    font-size: 1.15rem;
+    font-weight: bold;
+    padding: 25px 1.9rem;
+    cursor: pointer;
+    position: relative;
+    clip-path: inset(0px 0 -300px -300px);
+    z-index: 999;
+}
+.navbar-links .main-li::before {
+    content: "";
+    position: absolute;
+    top: -110%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-bottom: 4px solid var(--footer-text-color);
+    background-color: var(--footer-txt-color-trans);
+    transition: all 0.4s;
+    z-index: -1;
+}
+.navbar-links .main-li:hover::before,
+.navbar-links .main-li.active::before{
+    top: 0;
+}
+@media (max-width: 767px) {
+    .navbar-links .main-li {
+        font-size: .9rem;
+        padding: 20px 1.1rem;
+    }
+}
+.navbar-links .main-li a {
+    color: var(--footer-text-color);
+}
+.navbar-links #megaMenuLi .mega-menu {
+    position: absolute;
+    top: 170%;
+    right: 0;
+    width: 320px;
+    background-color: var(--footer-text-color);
+    opacity: 0;
+    visibility: hidden;
+    border-bottom-left-radius: 11px;
+    border-bottom-right-radius: 11px;
+    transition: all .4s;
+}
+#megaMenuLi:hover .mega-menu {
+    top: 100%;
+    visibility: visible;
+    opacity: 1;
+}
+.navbar-links #megaMenuLi .mega-menu ul li {
+    padding: 1.1rem;
+    font-size: 1rem;
+    position: relative;
+    overflow: hidden;
+    z-index: 999;
+}
+.navbar-links #megaMenuLi .mega-menu ul li::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: var(--header-bg-color-trans);
+    transition: all .6s;
+    z-index: -1;
+}
+.navbar-links #megaMenuLi .mega-menu ul li:last-child::before {
+    border-bottom-left-radius: 11px;
+    border-bottom-right-radius: 11px;
+}
+.navbar-links #megaMenuLi .mega-menu ul li:hover::before {
+    left: 0;
+}
+.navbar-links #megaMenuLi .mega-menu ul li:not(:last-child) {
+    border-bottom: 2px solid var(--night-button-bg-color);
+}
+.navbar-links #megaMenuLi .mega-menu ul li a {
+    color: var(--header-bg-color);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    z-index: 2;
+}
+.navbar-links #megaMenuLi .mega-menu ul li a svg {
+    margin-right: .8rem;
+    font-size: 1.2rem;
+}
+/* SECTION - End Navbar */
+
+
+/* *SECTION - Responsive */
+
+/* *SECTION - Start Contact */
+#contact{
+    position: relative;
+    top: 78px;
+    height: calc(100vh - 78px);
+}
+
+/* *STUB - Start Left Side */
+.contact-l-side{
+    background-color: var(--bg-color);
+}
+
+.contact-l-side h1{
+    padding: 15px;
+    font-size: 3rem;
+}
+.contact-l-side p{
+    padding: 15px;
+    font-size: 1.5rem /* 24px */;
+    line-height: 2rem /* 32px */;
+}
+.contact-methods .contact-us svg{
+    padding: 15px;
+    font-size: 2rem;
+    color: var(--button-bg-color);
+}
+
+/* *STUB - Start right Side */
+
+.contact-r-side{
+    background-color: var(--footer-text-color);
+}
+.contact-r-side form input, .contact-r-side form textarea{
+    padding: 10px 30px;
+    outline: none;
+    font-size: 1.2rem;
+    font-weight: 400;
+    transition: all var(--trans-duration) ease-in-out;
+    z-index: 1;
+    color: var(--button-bg-color);
+}
+.contact-r-side form input:focus, .contact-r-side form textarea:focus{
+    outline: none;
+    border: var(--button-bg-color) 3px solid;
+}
+.contact-r-side form textarea{
+    resize: none;
+}
+
+.contact-r-side form input::placeholder, .contact-r-side form textarea::placeholder{
+    font-size: 1.2rem;
+    font-weight: 400;
+    transition: all var(--trans-duration) ease-in-out;
+    color: #000;
+    opacity: 0.5;
+}
+.contact-r-side form input:focus::placeholder, .contact-r-side form textarea:focus::placeholder{
+    opacity: 0;
+}
+
+#contact form button{
+    background-color: var(--button-bg-color-trans2);
+    font-weight: 700;
+    transition: all var(--trans-duration) ease-in-out;
+    justify-self: flex-end;
+}
+
+#contact form button:hover{
+    background-color: var(--button-bg-color);
+    height: 100%;
+}
+
+.contact-error-message{
+    background-color: #af00004c;
+    border-radius: 8px;
+    height: 100%;
+    min-width: fit-content ;
+    width: 100%;
+    text-align: center;
+    padding: 12px 20px;
+    text-align: center;
+    font-weight: 600;
+    color: var(--button-text-color);
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.2s ;
+}
+.contact-message-visible{
+    visibility: visible;
+    opacity: 1;
+}
+.contact-message-done{
+    visibility: visible;
+    opacity: 1;
+    background-color: rgb(99 152 111)
+}
+/* *SECTION - Footer */
+footer,
+.copy {
+  background-color: #4e342e;
+  color: #e4c59e;
+  font-family: "Rubik", serif;
+  position: relative;
+  top: 78px;
+}
+/* *REVIEW - foot-card-1  */
+footer .foot-card-1 svg {
+  cursor: pointer;
+}
+footer .foot-card-1 svg:hover {
+  color: #e4c59e;
+  transform: scale(1.15);
+}
+/* *REVIEW - foot-card-2 */
+
+footer .foot-card-2 ul li {
+  cursor: pointer;
+}
+footer .foot-card-2 ul li:hover {
+  transform: scale(1.07) translateX(10px);
+  color: var(--footer-text-color);
+}
+footer .foot-card-2 ul h3 {
+  color: var(--footer-text-color);
+}
+
+/* *SECTION - second-row */
+
+.copy hr {
+  border-width: 2px;
+  border-color: var(--footer-text-color);
+  opacity: 0.3;
+}
+.copy p {
+  color: var(--footer-text-color);
+  opacity: 0.9;
+}
+
+@media (max-width:992px){
+    #contact{
+        top: 148.54px;
+        height: calc(100vh - 
+        148.54px);
+    }
+    footer, .copy{
+        top: 148.54px;
+    }
+    .contact-l-side h1{
+        font-size: 2.7rem;
+    }
+    .contact-l-side p{
+        font-size: 1.2rem;
+    }
+}
+@media (max-width:768px){
+    #contact{
+        top: 132.52px;
+        height: fit-content
+    }
+    footer, .copy{
+        top: 132.52px;
+    }
+}
